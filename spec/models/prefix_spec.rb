@@ -59,5 +59,12 @@ RSpec.describe Prefix, type: :model do
       expect(@search).to include(@prefix, @p1)
       expect(@search).not_to include(@p2)
     end
+
+    it "should convert to umlauts" do
+      @p1 = Prefix.create(prefix: 123456, comment: "Haßlinghausen")
+      @search = Prefix.search("hasslinghausen")
+
+      expect(@search).to include(@p1)
+    end
   end
 end

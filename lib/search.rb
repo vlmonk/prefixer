@@ -5,8 +5,10 @@ class Search
     words = term.split
     sql = []
     params = []
+    umlauts = {"ss" => "ß", "ae" => "ä", "ue" => "ü", "oe" => "ö"}
     words
       .map { |word| word.gsub(/[()\+-]/, "") }
+      .map { |word| word.gsub(/ss|ae|ue|oe/) { |n| umlauts[n] }}
       .map { |word| word.starts_with?("49") ? word[2..-1] : word}
       .map { |word| word.starts_with?("0") ? word[1..-1] : word}
       .map do |term|
