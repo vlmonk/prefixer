@@ -1,24 +1,6 @@
-# README
+### Поиск по префиксам (тестовое задание)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Фронтенд лежит в lib/assets/frontend/javascript
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Оригинальную csv-шку конвертнул скриптом lib/fix_csv.rb и загнал в постгре:
+> \copy prefixes(prefix, comment) FROM 'fixed.csv' with delimiter ',' csv
