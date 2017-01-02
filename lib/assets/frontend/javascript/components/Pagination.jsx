@@ -7,7 +7,7 @@ class Pagination extends React.Component {
       return false;
     }
     let tmpl = [...Array(total_pages).keys()].map((i) => {
-      return (<a href="#" onClick = {e => {this.props.onClick(this.props.text, i + 1);} }>{i + 1} </a>);
+      return (<a href="#" key={"page-" + i} onClick = {e => {this.props.onClick(this.props.text, i + 1);} }>{i + 1} </a>);
     })
     return (<div>
               {tmpl}
