@@ -1,6 +1,6 @@
 require 'csv'
 
-csv_text = File.read('/tmp/germany_raw.csv')
+csv_text = File.read('tmp/germany_raw.csv')
 csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
 
 r = csv.reduce([]) do |res, row|
