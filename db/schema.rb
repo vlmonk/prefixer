@@ -15,11 +15,6 @@ ActiveRecord::Schema.define(version: 20161229055356) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "numbers", force: :cascade do |t|
-    t.bigint "prefix"
-    t.string "comment"
-  end
-
   create_table "prefixes", force: :cascade do |t|
     t.string "prefix"
     t.string "comment"
