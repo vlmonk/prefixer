@@ -5,12 +5,13 @@ class TitleController < ApplicationController
   def search
     per_page = 10
     page = params[:page].to_i - 1
+    page = 1 if page < 1
 
-    prefixes = Prefix.search(params[:text])
+    prefixes = Prefix.search(params[:text] || '')
     total = prefixes.count
 
     paginated_prefixes = prefixes.order(:prefix).limit(per_page).offset(page * per_page)
-    
+
     render json: {prefixes: paginated_prefixes, total: total}
   end
 end
